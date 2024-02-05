@@ -104,6 +104,7 @@ test.describe('With auth', () => {
     page
   }) => {
     await createGroup(page)
+    await page.waitForSelector('text=Ver')
     await page.getByRole('link', { name: 'Ver' }).click()
     await page.locator('input[name="participant_name"]').fill('bar')
     await page.getByRole('button', { name: 'Añadir' }).click()

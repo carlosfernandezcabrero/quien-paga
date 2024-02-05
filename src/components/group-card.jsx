@@ -72,7 +72,6 @@ export default function GroupCard({ group: { name, id } }) {
         </Button>
         <Link
           href={`/group/${id}`}
-          target="_blank"
           size="sm"
           className={`flex items-center gap-x-2 ${buttonVariants.base} ${buttonVariants.variants.variant.default} ${buttonVariants.variants.size.sm}`}
         >

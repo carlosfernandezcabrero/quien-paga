@@ -1,13 +1,14 @@
 import { expect, test } from '@playwright/test'
-import { BASE_CREDENTIALS, createAccount, deleteAccount } from './actions/auth'
-import firebaseAdmin, { auth } from './firbase'
+import {
+  BASE_CREDENTIALS,
+  closeSession,
+  createAccount,
+  deleteAccount
+} from './actions/auth'
+import firebaseAdmin from './firbase'
 
 test.beforeEach(async ({ page }) => {
   await page.goto('/auth')
-})
-
-test.afterEach(async () => {
-  await firebaseAdmin.auth.deleteAllUsers()
 })
 
 test('Default auth page is for log in', async ({ page }) => {
@@ -56,41 +57,6 @@ test('Show error when password is not valid by length', async ({ page }) => {
   ).toBeVisible()
 })
 
-test('Can log in', async ({ page }) => {
-  await auth.createUser({
-    email: BASE_CREDENTIALS.email,
-    emailVerified: false,
-    password: BASE_CREDENTIALS.password,
-    disabled: false
-  })
-  await Promise.resolve(setTimeout(() => {}, 1000))
-  await page.locator('input[name="email"]').fill(BASE_CREDENTIALS.email)
-  await page.locator('input[name="password"]').fill(BASE_CREDENTIALS.password)
-  await page.getByRole('button', { name: 'Log in' }).click()
-
-  await page.waitForURL('/dashboard')
-
-  await expect(page).toHaveURL('/dashboard')
-})
-
-test('Can register', async ({ page }) => {
-  await createAccount(page)
-
-  await expect(page).toHaveURL('/dashboard')
-})
-
-test('Email already in use', async ({ page }) => {
-  await auth.createUser({
-    email: BASE_CREDENTIALS.email,
-    emailVerified: false,
-    password: BASE_CREDENTIALS.password,
-    disabled: false
-  })
-  await createAccount(page)
-
-  await expect(page.getByText('El correo ya está en uso')).toBeVisible()
-})
-
 test('Password incorrect', async ({ page }) => {
   await page.locator('input[name="email"]').fill(BASE_CREDENTIALS.email)
   await page.locator('input[name="password"]').fill('incorrect')
@@ -105,6 +71,38 @@ test('Email incorrect', async ({ page }) => {
   await page.getByRole('button', { name: 'Log in' }).click()
 
   await expect(page.getByText('Credenciales inválidas')).toBeVisible()
+})
+
+test.describe('Need delete account', () => {
+  test.afterEach(async () => {
+    await firebaseAdmin.auth.deleteAllUsers()
+  })
+
+  test('Can log in', async ({ page }) => {
+    await createAccount(page)
+    await closeSession(page)
+    await page.locator('input[name="email"]').fill(BASE_CREDENTIALS.email)
+    await page.locator('input[name="password"]').fill(BASE_CREDENTIALS.password)
+    await page.getByRole('button', { name: 'Log in' }).click()
+
+    await page.waitForURL('/dashboard')
+
+    await expect(page).toHaveURL('/dashboard')
+  })
+
+  test('Can register', async ({ page }) => {
+    await createAccount(page)
+
+    await expect(page).toHaveURL('/dashboard')
+  })
+
+  test('Email already in use', async ({ page }) => {
+    await createAccount(page)
+    await closeSession(page)
+    await createAccount(page)
+
+    await expect(page.getByText('El correo ya está en uso')).toBeVisible()
+  })
 })
 
 test.describe('Auth actions  with user created', () => {
