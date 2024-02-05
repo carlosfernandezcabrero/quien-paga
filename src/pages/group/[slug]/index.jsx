@@ -100,7 +100,7 @@ export default function Group() {
       <Suspense fallback={<p>Cargando...</p>}>
         {doc && (
           <div className="grid gap-10 px-4 py-8 border rounded-md dark:bg-slate-700 dark:border-slate-700 bg-slate-200 border-slate-300">
-            <PageTitle>{doc.name}</PageTitle>
+            <PageTitle className="justify-center">{doc.name}</PageTitle>
 
             <div className="grid gap-y-20">
               <div className="grid max-w-2xl gap-4 mx-auto">

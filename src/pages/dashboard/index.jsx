@@ -42,7 +42,7 @@ export default function Dashboard() {
       <section className="grid gap-10">
         <div className="flex flex-col items-center justify-between gap-8 tracking-wide sm:flex-row">
           <PageTitle>
-            <span className="flex items-center justify-center text-2xl font-bold text-white rounded-full dark:text-neutral-900 w-7 h-7 bg-cyan-800 dark:bg-cyan-100">
+            <span className="flex items-center justify-center text-xl font-bold text-white rounded-full dark:text-neutral-900 w-7 h-7 bg-cyan-800 dark:bg-cyan-100">
               {groups.length}
             </span>
             Tus grupos
