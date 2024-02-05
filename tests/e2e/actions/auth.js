@@ -20,3 +20,8 @@ export async function createAccount(page) {
     .fill(BASE_CREDENTIALS.password)
   await page.getByRole('button', { name: 'Registrarse' }).click()
 }
+
+export async function closeSession(page) {
+  await page.getByRole('button', { name: 'Open user menu' }).click()
+  await page.getByRole('button', { name: 'Cerrar sesión' }).click()
+}
