@@ -1,40 +1,88 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# QuienPaga
 
-## Getting Started
+Aplicación para ver a quien le toca pagar la siguiente cuenta. Lo interesante es que esto lo decide de entre los integrantes del grupo que menos veces hayan pagado para que sea lo mas justo posible.
 
-First, run the development server:
+## Tecnologías utilizadas
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- TailwindCss
+- Nextjs
+- Framer Motion
+- Firebase
+- Zod
+- Zustand
+- SweetAlert2
+- Lucide Icons
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Desarrollo
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- Crear un proyecto en Firebase.
+- Crear una aplicación de tipo web dentro del proyecto. El nombre de la misma es indiferente.
+- Crear el archivo `.env.development` en la raíz del proyecto.
+- Rellenar las siguientes variables con la configuración de Firebase:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+  ``` .env
+  NEXT_PUBLIC_API_KEY=""
+  NEXT_PUBLIC_AUTH_DOMAIN=""
+  NEXT_PUBLIC_PROJECT_ID=""
+  NEXT_PUBLIC_STORAGE_BUCKET=""
+  NEXT_PUBLIC_MESSAGING_SENDER_ID=""
+  NEXT_PUBLIC_APP_ID=""
+  ```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- Activar el modulo de autenticación y activar el método de correo electrónico.
+- Activar el modulo de Firestore.
+- Desplegar las reglas de Firestore. Para ello deberemos añadir el proyecto que acabamos de crear con la utilidad firebase-tools. [Guía](https://firebase.google.com/docs/rules/manage-deploy?hl=es)
+- Instalar las dependencias del proyecto
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+  ``` bash
+  [npm|pnpm|bun] install
+  ```
 
-## Learn More
+- Levantar el proyecto
 
-To learn more about Next.js, take a look at the following resources:
+  ``` bash
+  [npm|pnpm|bun] run dev
+  ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Pruebas
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Crear un proyecto en Firebase.
+- Crear una aplicación de tipo web dentro del proyecto. El nombre de la misma es indiferente.
+- Crear el archivo `.env.test` en la raíz del proyecto.
+- Rellenar las siguientes variables con la configuración de Firebase:
 
-## Deploy on Vercel
+  ``` .env
+  NEXT_PUBLIC_API_KEY=""
+  NEXT_PUBLIC_AUTH_DOMAIN=""
+  NEXT_PUBLIC_PROJECT_ID=""
+  NEXT_PUBLIC_STORAGE_BUCKET=""
+  NEXT_PUBLIC_MESSAGING_SENDER_ID=""
+  NEXT_PUBLIC_APP_ID=""
+  ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Activar el modulo de autenticación y activar el método de correo electrónico.
+- Activar el modulo de Firestore.
+- Desplegar las reglas de Firestore. Para ello deberemos añadir el proyecto que acabamos de crear con la utilidad firebase-tools. [Guía](https://firebase.google.com/docs/rules/manage-deploy?hl=es)
+- Instalar las dependencias del proyecto
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+  ``` bash
+  [npm|pnpm|bun] install
+  ```
+
+- Levantar el proyecto
+
+  ``` bash
+  [npm|pnpm|bun] run dev:e2e
+  ```
+
+- Ejecutar las pruebas
+
+  ``` bash
+  npx playwright test [--ui]
+  ```
+
+## Contribuir
+
+- Clonar el proyecto.
+- Crear una rama con el prefijo `feature/` y un nombre que indique brevemente de que se trata.
+- Realizar PR.
