@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test'
-import { createAccount } from './actions/auth'
-import { createGroup } from './actions/groups'
-import firebaseAdmin from './firbase'
+import { createAccount } from '../actions/auth'
+import { createGroup } from '../actions/groups'
+import firebaseAdmin from '../lib/firbase'
 
 test.beforeEach(async ({ page }) => {
   await page.goto('/auth')

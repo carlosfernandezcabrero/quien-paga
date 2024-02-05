@@ -4,8 +4,8 @@ import {
   closeSession,
   createAccount,
   deleteAccount
-} from './actions/auth'
-import firebaseAdmin from './firbase'
+} from '../actions/auth'
+import firebaseAdmin from '../lib/firbase'
 
 test.beforeEach(async ({ page }) => {
   await page.goto('/auth')
