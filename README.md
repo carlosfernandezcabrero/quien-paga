@@ -12,6 +12,7 @@ Aplicación para ver a quien le toca pagar la siguiente cuenta. Lo interesante e
 - Zustand
 - SweetAlert2
 - Lucide Icons
+- Playwright
 
 ## Desarrollo
 
