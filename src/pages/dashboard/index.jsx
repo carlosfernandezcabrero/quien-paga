@@ -6,6 +6,7 @@ import Portal from '@/components/portal'
 import Button from '@/components/ui/button'
 import DashboardLayout from '@/layouts/dashboard-layout'
 import { useUserStore } from '@/stores/user'
+import Head from 'next/head'
 import { useEffect, useState } from 'react'
 
 export default function Dashboard() {
@@ -35,6 +36,9 @@ export default function Dashboard() {
 
   return (
     <DashboardLayout>
+      <Head>
+        <title>Tus grupos</title>
+      </Head>
       <section className="grid gap-10">
         <div className="flex flex-col items-center justify-between gap-8 tracking-wide sm:flex-row">
           <PageTitle>

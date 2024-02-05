@@ -8,6 +8,7 @@ import Input from '@/components/ui/input'
 import DashboardLayout from '@/layouts/dashboard-layout'
 import { useUserStore } from '@/stores/user'
 import { motion } from 'framer-motion'
+import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { Suspense, useEffect, useState } from 'react'
 
@@ -93,6 +94,9 @@ export default function Group() {
 
   return (
     <DashboardLayout>
+      <Head>
+        <title>Grupo: {doc?.name || ''}</title>
+      </Head>
       <Suspense fallback={<p>Cargando...</p>}>
         {doc && (
           <div className="grid gap-10 px-4 py-8 border rounded-md dark:bg-slate-700 dark:border-slate-700 bg-slate-200 border-slate-300">

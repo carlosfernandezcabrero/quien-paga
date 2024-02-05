@@ -26,8 +26,9 @@ test.describe('With auth', () => {
     await firebaseAdmin.db.deleteAllGroups()
   })
 
-  test('The title is correct', async ({ page }) => {
+  test('The h1 and title is correct', async ({ page }) => {
     await expect(page.locator('h1')).toHaveText('Test group')
+    expect(await page.title()).toBe('Grupo: Test group')
   })
 
   test('Can add a participant to a group', async ({ page }) => {

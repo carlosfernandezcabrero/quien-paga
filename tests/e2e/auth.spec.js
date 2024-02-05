@@ -63,6 +63,7 @@ test('Can log in', async ({ page }) => {
     password: BASE_CREDENTIALS.password,
     disabled: false
   })
+  await Promise.resolve(setTimeout(() => {}, 1000))
   await page.locator('input[name="email"]').fill(BASE_CREDENTIALS.email)
   await page.locator('input[name="password"]').fill(BASE_CREDENTIALS.password)
   await page.getByRole('button', { name: 'Log in' }).click()

@@ -22,6 +22,11 @@ test.describe('With auth', () => {
     await firebaseAdmin.db.deleteAllGroups()
   })
 
+  test('The title and h1 should be "0Tus grupos"', async ({ page }) => {
+    await expect(page.locator('h1')).toHaveText('0Tus grupos')
+    expect(await page.title()).toBe('Tus grupos')
+  })
+
   test('Cannot create a group without participants', async ({ page }) => {
     await page.getByRole('button', { name: 'Añadir grupo' }).click()
     await page.locator('input[name="group_name"]').fill('Test group')
