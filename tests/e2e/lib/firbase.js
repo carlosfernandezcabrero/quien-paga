@@ -2,7 +2,7 @@ import dotenv from 'dotenv'
 import { cert, initializeApp } from 'firebase-admin/app'
 import { getAuth } from 'firebase-admin/auth'
 import { getFirestore } from 'firebase-admin/firestore'
-import serviceAccount from '../../serviceAccountKey.json'
+import serviceAccount from '../../../serviceAccountKey.json'
 
 dotenv.config({ path: '.env.testing' })
 
