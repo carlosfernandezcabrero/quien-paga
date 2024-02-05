@@ -1,3 +1,12 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "next/core-web-vitals",
+    "standard"
+  ],
+  "rules": {
+    "space-before-function-paren": "off",
+    "multiline-ternary": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "react/display-name": "off"
+  }
 }
