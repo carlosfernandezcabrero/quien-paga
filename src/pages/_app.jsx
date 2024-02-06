@@ -26,7 +26,7 @@ export default function App({ Component, pageProps }) {
       <Head>
         <meta
           name="description"
-          content="Aplicación para ver a quien le toca pagar la cuenta de entre los que menos haya pagado hasta el momento."
+          content="Aplicación para ver a quien le toca pagar la cuenta de entre los que menos hayan pagado hasta el momento."
         />
       </Head>
       <Component {...pageProps} />
