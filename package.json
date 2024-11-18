@@ -11,7 +11,7 @@
     "deploy:firebase:rules": "firebase deploy --only firestore:rules"
   },
   "dependencies": {
-    "firebase": "10.7.2",
+    "firebase": "10.9.0",
     "framer-motion": "11.0.3",
     "lucide-react": "0.314.0",
     "next": "14.1.1",
